@@ -1,3 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+header {
+    background: black;
+    width: 80vw;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 50px;
+}
+
+header a {
+    color: white;
+    font-size: 1em;
+}
+
+img {
+    width: 250px;
+}
+
+ul {
+ display: flex;
+}
+
+ul li {
+ margin: 0 30px;
+}
+
 body {
-    background-color: skyblue;
+    
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background: black;
+  overflow: hidden;
 }

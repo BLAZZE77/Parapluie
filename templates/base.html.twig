@@ -12,6 +12,21 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+          {% block header %}
+            <header>
+                <div class="img">
+                    <img src="{{ asset('img/umbrellalogowhite.png') }}" alt="Logo du site umbrella">
+                </div>
+                <ul class="navlink">
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/about">À propos</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </header>
+            {% endblock %}
+        {% block main %}
+            {% block hero %}
+            {% endblock %}
+        {% endblock %}
     </body>
 </html>
