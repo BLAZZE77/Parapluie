@@ -1,0 +1,15 @@
+@use "variables" as variable;
+
+@mixin button {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    background-color: variable.$primary-clr;
+    text-transform: uppercase;
+    font-family: variable.$primary-ff-medium;
+    font-weight: 600;
+    color: variable.$white;
+    text-decoration: none;
+}

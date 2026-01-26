@@ -23,7 +23,6 @@ export default class extends Controller {
     connect() {
         this.initThree();
         this.animate();
-
         window.addEventListener('resize', () => this.onWindowResize());
     }
 

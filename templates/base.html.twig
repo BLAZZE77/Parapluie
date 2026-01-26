@@ -5,9 +5,11 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
@@ -19,7 +21,7 @@
                 </div>
                 <ul class="navlink">
                     <li><a href="/">Accueil</a></li>
-                    <li><a href="/about">À propos</a></li>
+                    <li><a href="/Gallery ">Gallery</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </header>
@@ -27,6 +29,8 @@
         {% block main %}
             {% block hero %}
             {% endblock %}
+            {% block body %}{% endblock %}
         {% endblock %}
+       
     </body>
 </html>

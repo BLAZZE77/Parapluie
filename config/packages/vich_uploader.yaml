@@ -1,0 +1,9 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:  
+        Images:
+            uri_prefix: /img/parapluie
+            upload_destination: '%kernel.project_dir%/public/user/img/parapluie'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+             

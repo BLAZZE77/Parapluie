@@ -2,9 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use App\Repository\ParapluieRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\DBAL\Types\Types;
 
+
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: ParapluieRepository::class)]
 class Parapluie
 {
@@ -19,7 +26,7 @@ class Parapluie
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $img = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type :'text')]
     private ?string $description = null;
 
     #[ORM\Column]
@@ -27,7 +34,16 @@ class Parapluie
 
     #[ORM\ManyToOne(inversedBy: 'parapluies')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?user $user = null;
+    private ?User $user = null;
+
+    #[Vich\UploadableField(mapping: 'Images', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
+    
+    #[ORM\Column(nullable: true)]
+    private ?string $imageName = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -46,17 +62,11 @@ class Parapluie
         return $this;
     }
 
-    public function getImg(): ?string
+    public function getImageFile(): ?File
     {
-        return $this->img;
+        return $this->imageFile;
     }
 
-    public function setImg(?string $img): static
-    {
-        $this->img = $img;
-
-        return $this;
-    }
 
     public function getDescription(): ?string
     {
@@ -82,15 +92,48 @@ class Parapluie
         return $this;
     }
 
-    public function getUser(): ?user
+    public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?user $user): static
+    public function setUser(?User $user): static
     {
         $this->user = $user;
 
         return $this;
     }
+
+    public function setImageFile(?File $imageFile): void
+    {
+        $this->imageFile = $imageFile;
+
+        if ($imageFile) {
+            $this->updateAt = new \DateTimeImmutable();
+        }
+        
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+    $this->imageName = $imageName;
+    }
+
+    
+
 }
+
+
+
+
+
+
+
+
+

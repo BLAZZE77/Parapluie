@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AddparapluieController!{% endblock %}
+
+{% block body %}
+{{ form_start(ParaForm, { 'attr': { 'enctype': 'multipart/form-data' } }) }}
+    {{form_widget(ParaForm)}}
+    <button>ajout</button>
+{{form_end(ParaForm)}}
+
+
+
+{% endblock %}

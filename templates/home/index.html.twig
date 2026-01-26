@@ -4,11 +4,27 @@
 
 {% block hero %}
 
-<script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
 <div
     class="three-bg"
     data-controller="pluie">
 </div>
 
+{% endblock %}
 
+{% block body %}
+    <div class="home">
+        <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
+        {% for parapluie in parapluie %}
+        <div class="parapluie">    
+            <div class="card">
+                    <img src="{{ asset('user/img/parapluie/' ~ parapluie.ImageName) }}">
+                <div class="card-content">
+                    <h3>{{parapluie.name}}</h3>
+                    <p>{{parapluie.description}}</p>
+                    <a href="">En savoir +</a>
+                </div>
+            </div>
+        </div>    
+        {% endfor %}
+    </div>
 {% endblock %}
