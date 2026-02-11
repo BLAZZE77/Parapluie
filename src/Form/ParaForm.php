@@ -20,7 +20,6 @@ class ParaForm extends AbstractType
         $builder
             ->add('name')
             ->add('imageFile',FileType::class, [
-             
                 'label' => 'Image du parapluie',
                 'required' => false,
                 'constraints' => [
@@ -35,7 +34,7 @@ class ParaForm extends AbstractType
                     ])
                 ],
              ])
-             
+            ->add('user')
             ->add('description')
             ->add('price');
     }

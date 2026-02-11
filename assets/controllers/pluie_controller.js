@@ -64,7 +64,17 @@ export default class extends Controller {
         this.renderer.setClearColor(this.scene.fog.color);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.element.appendChild(this.renderer.domElement);
+        this.renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        this.renderer.setClearColor(this.scene.fog.color);
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+        this.element.appendChild(this.renderer.domElement);
 
+
+        this.renderer.domElement.style.position = 'fixed';
+        this.renderer.domElement.style.top = '0';
+        this.renderer.domElement.style.left = '0';
+        this.renderer.domElement.style.zIndex = '-1';
+        this.renderer.domElement.style.pointerEvents = 'none';
 
         this.rainGeo = new THREE.BufferGeometry();
         const rainVertices = [];

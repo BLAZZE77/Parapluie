@@ -1,4 +1,3 @@
-
 // Abstracts
 @use "abstracts/font-face";
 
@@ -8,6 +7,10 @@
 
 // Pages
 @use "pages/home";
+@use "pages/addparapluie";
+@use "pages/gallery";
+@use "pages/login";
+@use "pages/register";
 
 // Layout
 @use "layout/header";

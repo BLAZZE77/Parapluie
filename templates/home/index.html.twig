@@ -7,24 +7,34 @@
 <div
     class="three-bg"
     data-controller="pluie">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
 </div>
 
 {% endblock %}
 
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+
 {% block body %}
     <div class="home">
-        <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script>
-        {% for parapluie in parapluie %}
-        <div class="parapluie">    
+        <div class="mid">
+             <button class="parapluie-btn">
+                <a href="/addparapluie"> Ajouter un Parapluie</a> 
+            </button>
+        </div>
+        <div class="parapluie">   
+        {% for parapluie in parapluie %} 
             <div class="card">
                     <img src="{{ asset('user/img/parapluie/' ~ parapluie.ImageName) }}">
                 <div class="card-content">
                     <h3>{{parapluie.name}}</h3>
-                    <p>{{parapluie.description}}</p>
+                     <p>{{ parapluie.description|length > 35 ? parapluie.description[:35] ~ '...' : parapluie.description }}</p>
                     <a href="">En savoir +</a>
                 </div>
-            </div>
-        </div>    
+            </div>  
         {% endfor %}
+        </div>  
     </div>
 {% endblock %}

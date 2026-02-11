@@ -3,11 +3,15 @@
 {% block title %}Hello AddparapluieController!{% endblock %}
 
 {% block body %}
-{{ form_start(ParaForm, { 'attr': { 'enctype': 'multipart/form-data' } }) }}
-    {{form_widget(ParaForm)}}
-    <button>ajout</button>
-{{form_end(ParaForm)}}
-
-
-
+<section class="add-parapluie">
+    {{ form_start(ParaForm, {
+        attr: {
+            class: 'parapluie-form',
+            enctype: 'multipart/form-data'
+        }
+    }) }}
+        {{ form_widget(ParaForm) }}
+        <button class="btn-primary">Ajouter</button>
+    {{ form_end(ParaForm) }}
+</section>
 {% endblock %}

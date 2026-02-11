@@ -1,23 +1,20 @@
 @use "../abstracts/variables" as variable;
 @use "../abstracts/mixins" as mixin;
 
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -100;          
-    pointer-events: none; 
-    display: block;
-    }
+
 
 .home {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+
 
     .parapluie {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 6rem;
         .card {
             position: relative;
             z-index: 4;           
@@ -58,4 +55,15 @@ canvas {
             }
         }
      }
+}
+
+
+.three-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;   /* juste la fenêtre, pas plus */
+    pointer-events: none;
+    z-index: -1;
 }

@@ -7,16 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-final class HomeController extends AbstractController
+final class GalleryController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/gaallery ', name: 'galleryparapluie')]
     public function index(ParapluieRepository $repository): Response
     {
-        $parapluie = $repository->findLastThree();
+    $parapluie = $repository->findall();
 
         return $this->render('home/index.html.twig', [
             'parapluie' => $parapluie ,
-            'controller_name' => 'HomeController',
         ]);
     }
 }

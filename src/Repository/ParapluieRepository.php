@@ -16,6 +16,15 @@ class ParapluieRepository extends ServiceEntityRepository
         parent::__construct($registry, Parapluie::class);
     }
 
+   public function findLastThree()
+{
+    return $this->createQueryBuilder('p')
+        ->orderBy('p.id', 'DESC')  
+        ->setMaxResults(4)          
+        ->getQuery()
+        ->getResult();
+}
+
 //    /**
 //     * @return Parapluie[] Returns an array of Parapluie objects
 //     */
